@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Document   : sri_sustento.xml
+    Description:
+        Estructura de la tabla para codigos de sustento tributario
+-->
+<tabla>
+   <columna>
+      <nombre>codsustento</nombre>
+      <tipo>character varying(2)</tipo>
+      <nulo>NO</nulo>
+   </columna>
+   <columna>
+      <nombre>descripcion</nombre>
+      <tipo>character varying(100)</tipo>
+      <nulo>NO</nulo>
+   </columna>
+   <restriccion>
+      <nombre>sri_sustento_pkey</nombre>
+      <consulta>PRIMARY KEY (codsustento)</consulta>
+   </restriccion>
+</tabla>
