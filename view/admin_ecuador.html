@@ -1,31 +1,24 @@
 {include="header"}
 
-<div class="container">
-   <div class="row">
-      <div class="col-sm-12">
-         <div class="page-header">
-            <h2><span class="glyphicon glyphicon-globe" aria-hidden="true"></span>Plugin de Ecuador Para FacturaScripts
-               <a class="btn btn-sm btn-default hidden-xs" href="{$fsc->url()}" title="recargar la página">
-                  <span class="glyphicon glyphicon-refresh"></span>
-               </a>
-            </h2>
-            <p class="help-block">
-               Este plugin está en desarrollo. Eres libre de aportar lo que puedas:
-               <a href="https://www.facturascripts.com/plugin/ecuador" target="_blank">https://www.facturascripts.com/plugin/ecuador</a>
-            </p>
-
-         </div>
-      </div>
-   </div>
-</div>
-
 <div class="container-fluid">
    <div class="row">
       <div class="col-sm-12">
-
+         <div class="page-header">
+            <h1>
+               <span class="glyphicon glyphicon-globe" aria-hidden="true"></span> Ecuador
+               <a class="btn btn-xs btn-default" href="{$fsc->url()}" title="Recargar la página">
+                  <span class="glyphicon glyphicon-refresh"></span>
+               </a>
+            </h1>
+            <p class="help-block">
+               Plugin de adaptación de FacturaScripts a Ecuador:
+               <a href="https://www.facturascripts.com/plugin/ecuador" target="_blank">https://www.facturascripts.com/plugin/ecuador</a>
+            </p>
+         </div>
+      </div>
    </div>
    <div class="row">
-      <div class="col-sm-3">
+      <div class="col-sm-6">
          {if="$fsc->empresa->coddivisa=='USD'"}
          <a href="{$fsc->url()}&opcion=moneda" class="btn btn-block btn-success">
             <span class="glyphicon glyphicon-ok"></span> &nbsp; Establecer USD como moneda por defecto
@@ -37,7 +30,7 @@
          {/if}
          <br/>
       </div>
-      <div class="col-sm-3">
+      <div class="col-sm-6">
          {if="$fsc->empresa->codpais=='ECU'"}
          <a href="{$fsc->url()}&opcion=pais" class="btn btn-block btn-success">
             <span class="glyphicon glyphicon-ok"></span> &nbsp; Establecer Ecuador como pais por defecto
@@ -49,7 +42,7 @@
          {/if}
          <br/>
       </div>
-      <div class="col-sm-3">
+      <div class="col-sm-6">
          {if="$fsc->adap_conf"}
          <a href="{$fsc->url()}&opcion=adap_conf" class="btn btn-block btn-success">
             <span class="glyphicon glyphicon-ok"></span> &nbsp; Establecer Hora y Traduciones
@@ -61,11 +54,7 @@
          {/if}
          <br/>
       </div>
-   </div>
-   </div>
-
-   <div class="row">
-      <div class="col-sm-12">
+      <div class="col-sm-6">
          <a href="index.php?page=contabilidad_ejercicio&cod={$fsc->empresa->codejercicio}" target="_blank" class="btn btn-block btn-default">
             <span class="badge">3</span> &nbsp; Importar los datos contables
          </a>
