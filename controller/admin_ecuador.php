@@ -23,8 +23,17 @@
  *
  * @author carlos
  */
+
+require_model('divisa.php');
+require_model('pais.php');
+require_model('impuesto.php');
+
+
 class admin_ecuador extends fs_controller
 {
+    public $adap_var;
+    public $adap_conf;
+
    public function __construct()
    {
       parent::__construct(__CLASS__, 'Ecuador', 'admin');
@@ -33,6 +42,23 @@ class admin_ecuador extends fs_controller
    protected function private_core()
    {
       $this->share_extensions();
+      $this->adap_var =
+          array(  'zona_horaria'=>'America/Guayaquil',
+                  'albaran'=>'Guia de Remision',
+                  'albaranes'=>'Guias de Remision',
+                  'presupuesto'=>'Proforma',
+                  'presupuestos'=>'Proformas',
+                  'cifnif'=>'Cedula/RUC',
+                  'factura' => 'factura',
+                  'facturas' => 'facturas',
+                  'iva' => 'IVA',
+                  'factura_simplificada' => 'factura simplificada',
+                  'factura_rectificativa' => 'factura rectificativa',
+                  'stock_negativo' => 0,
+                  'ventas_sin_stock' => 0,
+                  'nf1' => ',',
+                  'pos_divisa'=>'left');
+
       
       if( isset($_GET['opcion']) )
       {
@@ -52,11 +78,17 @@ class admin_ecuador extends fs_controller
                $this->new_message('Datos guardados correctamente.');
             }
          }
+         else if($_GET['opcion'] == 'adap_conf')
+         {
+             $this->adap_conf();
+         }
       }
       else
       {
          $this->check_ejercicio();
       }
+
+       $this->adap_conf = ($GLOBALS['config2']['presupuesto'] == 'Proforma') ? TRUE : FALSE;
    }
    
    private function share_extensions()
@@ -70,7 +102,32 @@ class admin_ecuador extends fs_controller
       $fsext->params = 'plugins/ecuador/extras/ecuador.xml';
       $fsext->save();
    }
-   
+    public function  adap_conf() {
+
+        $save = FALSE;
+        foreach ($GLOBALS['config2'] as $i => $value) {
+            if (isset($this->adap_var[$i])) {
+                $GLOBALS['config2'][$i] = $this->adap_var[$i];
+                $save= TRUE;
+            }
+        }
+
+        if ($save) {
+            $file = fopen('tmp/' . FS_TMP_NAME . 'config2.ini', 'w');
+            if ($file) {
+                foreach ($GLOBALS['config2'] as $i => $value) {
+                    if (is_numeric($value)) {
+                        fwrite($file, $i . " = " . $value . ";\n");
+                    } else {
+                        fwrite($file, $i . " = '" . $value . "';\n");
+                    }
+                }
+                fclose($file);
+            }
+            $this->new_message('Datos de configuracion Hora y Traducciones Guardados.');
+        }
+    }
+
    private function check_ejercicio()
    {
       $ej0 = new ejercicio();
