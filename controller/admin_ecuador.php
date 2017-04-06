@@ -82,6 +82,10 @@ class admin_ecuador extends fs_controller
          {
              $this->adap_conf();
          }
+         else if($_GET['opcion'] == 'impuestos')
+         {
+             $this->set_impuestos();
+         }
       }
       else
       {
@@ -147,4 +151,64 @@ class admin_ecuador extends fs_controller
          }
       }
    }
+
+
+    private function set_impuestos()
+    {
+        /// eliminamos los impuestos que ya existen (los de España)
+        $imp0 = new impuesto();
+        foreach($imp0->all() as $impuesto)
+        {
+            $this->desvincular_articulos($impuesto->codimpuesto);
+            $impuesto->delete();
+        }
+
+        /// añadimos los de Ecuador
+        $codimp = array("EC14","EC12","EC0");
+        $desc = array("EC 14%","EC 12%","EC 0%");
+        $recargo = 0;
+        $iva = array(14, 12, 0);
+        $cant = count($codimp);
+        for($i=0; $i<$cant; $i++)
+        {
+            $impuesto = new impuesto();
+            $impuesto->codimpuesto = $codimp[$i];
+            $impuesto->descripcion = $desc[$i];
+            $impuesto->recargo = $recargo;
+            $impuesto->iva = $iva[$i];
+            $impuesto->save();
+        }
+
+        $this->impuestos_ok = TRUE;
+        $this->new_message('Impuestos de Ecuador añadidos.');
+    }
+
+    public function impuestos_ok()
+    {
+        $ok = FALSE;
+
+        $imp0 = new impuesto();
+        foreach($imp0->all() as $i)
+        {
+            if($i->codimpuesto == 'EC14')
+            {
+                $ok = TRUE;
+                break;
+            }
+        }
+
+        return $ok;
+    }
+
+
+    private function desvincular_articulos($codimpuesto)
+    {
+        $sql = "UPDATE articulos SET codimpuesto = null WHERE codimpuesto = "
+            .$this->empresa->var2str($codimpuesto).';';
+
+        if( $this->db->table_exists('articulos') )
+        {
+            $this->db->exec($sql);
+        }
+    }
 }
