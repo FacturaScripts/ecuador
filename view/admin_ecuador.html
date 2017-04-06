@@ -56,10 +56,23 @@
       </div>
       <div class="col-sm-6">
          <a href="index.php?page=contabilidad_ejercicio&cod={$fsc->empresa->codejercicio}" target="_blank" class="btn btn-block btn-default">
-            <span class="badge">3</span> &nbsp; Importar los datos contables
+            <span class="badge">4</span> &nbsp; Importar los datos contables
          </a>
          <p class='help-block'>Aunque esté activado no se marca en verde. Lo siento ;-)</p>
          <br/>
+      </div>
+   </div>
+   <div class="row">
+      <div class="col-sm-12">
+         {if="$fsc->impuestos_ok()"}
+         <a href="{$fsc->url()}&opcion=impuestos" target="_blank" class="btn btn-block btn-success">
+            <span class="glyphicon glyphicon-ok"></span> &nbsp; Agregar Impuestos
+         </a>
+         {else}
+         <a href="{$fsc->url()}&opcion=impuestos" target="_blank" class="btn btn-block btn-default">
+            <span class="badge">5</span> &nbsp; Agregar Impuestos
+         </a>
+         {/if}
       </div>
    </div>
 </div>
