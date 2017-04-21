@@ -48,7 +48,7 @@ class admin_ecuador extends fs_controller
                   'albaranes'=>'Guias de Remision',
                   'presupuesto'=>'Proforma',
                   'presupuestos'=>'Proformas',
-                  'cifnif'=>'Cedula/RUC',
+                  'cifnif'=>'Cedula',
                   'factura' => 'factura',
                   'facturas' => 'facturas',
                   'iva' => 'IVA',
