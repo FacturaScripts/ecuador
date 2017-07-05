@@ -28,6 +28,8 @@ class factura_cliente extends  FacturaScripts\model\factura_cliente
     public function new_codigo()
     {
 
+    if (FS_NEW_CODIGO == 'eneboo') {
+
         /// buscamos el numero inicial para la serie
         $num = 1;
         $serie0 = new \serie();
@@ -38,8 +40,6 @@ class factura_cliente extends  FacturaScripts\model\factura_cliente
             $num = $serie->numfactura;
 
         }
-
-
 
         /// buscamos un hueco o el siguiente numero disponible
         $encontrado = FALSE;
@@ -86,11 +86,14 @@ class factura_cliente extends  FacturaScripts\model\factura_cliente
         else
         {
             $this->numero = $num;
-
         }
 
         $this->codigo = $this->codserie.sprintf('%07s', $this->numero);
 
-    }
-
+        } 
+        else 
+        {       
+            return parent::new_codigo();
+        } 
+    }  
 }
