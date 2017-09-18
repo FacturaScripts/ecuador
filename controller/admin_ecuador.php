@@ -27,6 +27,7 @@
 require_model('divisa.php');
 require_model('pais.php');
 require_model('impuesto.php');
+require_model('cuenta_especial.php');
 
 
 class admin_ecuador extends fs_controller
@@ -41,6 +42,9 @@ class admin_ecuador extends fs_controller
    
    protected function private_core()
    {
+
+    
+
       $this->share_extensions();
       $this->adap_var =
           array(  'zona_horaria'=>'America/Guayaquil',
@@ -137,9 +141,9 @@ class admin_ecuador extends fs_controller
       $ej0 = new ejercicio();
       foreach($ej0->all_abiertos() as $ejercicio)
       {
-         if($ejercicio->longsubcuenta != 6)
+         if($ejercicio->longsubcuenta == 7)
          {
-            $ejercicio->longsubcuenta = 6;
+            $ejercicio->longsubcuenta = 7;
             if( $ejercicio->save() )
             {
                $this->new_message('Datos del ejercicio '.$ejercicio->codejercicio.' modificados correctamente.');
