@@ -121,6 +121,22 @@
       <idcuentaesp>PYG</idcuentaesp>
       <descripcion>UMOpcmRpZGFzIHkgZ2FuYW5jaWFz</descripcion>
    </cuenta_especial>
+   <cuenta_especial>
+      <idcuentaesp>ERICOM</idcuentaesp>
+      <descripcion>RWN1YWRvciByZXRlbmNpw7NuIGRlIElWQSBjb21wcmFz</descripcion>
+   </cuenta_especial>
+   <cuenta_especial>
+      <idcuentaesp>ERIVEN</idcuentaesp>
+      <descripcion>RWN1YWRvciByZXRlbmNpw7NuIGRlIElWQSB2ZW50YXM=</descripcion>
+   </cuenta_especial>
+   <cuenta_especial>
+      <idcuentaesp>ERFCOM</idcuentaesp>
+      <descripcion>RWN1YWRvciByZXRlbmNpw7NuIGZ1ZW50ZSBjb21wcmFz</descripcion>
+   </cuenta_especial>
+   <cuenta_especial>
+      <idcuentaesp>ERFVEN</idcuentaesp>
+      <descripcion>RWN1YWRvciByZXRlbmNpw7NuIGZ1ZW50ZSB2ZW50YXM=</descripcion>
+   </cuenta_especial>
    <epigrafe>
       <codgrupo />
       <codpadre />
@@ -353,13 +369,13 @@
       <codepigrafe>113</codepigrafe>
       <codcuenta>1134</codcuenta>
       <descripcion>SU1QVUVTVE9TIFNSSQ==</descripcion>
-      <idcuentaesp>IVASOP</idcuentaesp>
+      <idcuentaesp>ERFVEN</idcuentaesp>
    </cuenta>
    <cuenta>
       <codepigrafe>113</codepigrafe>
       <codcuenta>1135</codcuenta>
       <descripcion>UkVURU5DSU9ORVMgWSBBTlRJQ0lQT1M=</descripcion>
-      <idcuentaesp>IRPFPR</idcuentaesp>
+      <idcuentaesp>ERIVEN</idcuentaesp>
    </cuenta>
    <cuenta>
       <codepigrafe>114</codepigrafe>
@@ -431,13 +447,13 @@
       <codepigrafe>213</codepigrafe>
       <codcuenta>2134</codcuenta>
       <descripcion>UkVURU5DSU9ORVMgREUgSVZB</descripcion>
-      <idcuentaesp />
+      <idcuentaesp>ERICOM</idcuentaesp>
    </cuenta>
    <cuenta>
       <codepigrafe>213</codepigrafe>
       <codcuenta>2135</codcuenta>
       <descripcion>UkVURU5DSU9ORVMgRU4gTEEgRlVFTlRF</descripcion>
-      <idcuentaesp>IRPF</idcuentaesp>
+      <idcuentaesp>ERFCOM</idcuentaesp>
    </cuenta>
    <cuenta>
       <codepigrafe>213</codepigrafe>
@@ -701,6 +717,29 @@
       <codcuenta>1135</codcuenta>
       <codsubcuenta>1135003</codsubcuenta>
       <descripcion>UmV0ZW5jaW9uZXMgSVZBICByZWNpYmlkYXM=</descripcion>
+      <coddivisa>USD</coddivisa>
+   </subcuenta>
+   <subcuenta>
+      <codcuenta>1135</codcuenta>
+      <codsubcuenta>1135004</codsubcuenta>
+      <descripcion>UklWQSAxMDAlIEhvbm9yYXJpb3M=</descripcion>
+      <coddivisa>USD</coddivisa>
+   </subcuenta>
+   <subcuenta>
+      <codcuenta>1135</codcuenta>
+      <codsubcuenta>1135005</codsubcuenta>
+      <descripcion>UklWQSAxMDAlIEFycmllbmRvIFAgTmF0</descripcion>
+      <coddivisa>USD</coddivisa>
+   </subcuenta>
+   <subcuenta>
+      <codcuenta>1135</codcuenta>
+      <codsubcuenta>1135006</codsubcuenta>
+      <descripcion>UklWQSA3MCUgU2VydmljaW9z</descripcion>
+      <coddivisa>USD</coddivisa></subcuenta>
+   <subcuenta>
+      <codcuenta>1135</codcuenta>
+      <codsubcuenta>1135007</codsubcuenta>
+      <descripcion>UklWQSAzMCUgQmllbmVz</descripcion>
       <coddivisa>USD</coddivisa>
    </subcuenta>
    <subcuenta>
