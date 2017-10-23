@@ -163,15 +163,17 @@ class admin_ecuador extends fs_controller
         $imp0 = new impuesto();
         foreach($imp0->all() as $impuesto)
         {
+            if ($impuesto->codimpuesto != 'EC12' AND $impuesto->codimpuesto != 'EC0') {
             $this->desvincular_articulos($impuesto->codimpuesto);
             $impuesto->delete();
+             }
         }
 
         /// añadimos los de Ecuador
-        $codimp = array("EC14","EC12","EC0");
-        $desc = array("EC 14%","EC 12%","EC 0%");
+        $codimp = array("EC12","EC0");
+        $desc = array("EC 12%","EC 0%");
         $recargo = 0;
-        $iva = array(14, 12, 0);
+        $iva = array(12, 0);
         $cant = count($codimp);
         for($i=0; $i<$cant; $i++)
         {
@@ -194,7 +196,7 @@ class admin_ecuador extends fs_controller
         $imp0 = new impuesto();
         foreach($imp0->all() as $i)
         {
-            if($i->codimpuesto == 'EC14')
+            if($i->codimpuesto == 'EC12')
             {
                 $ok = TRUE;
                 break;
